@@ -2,7 +2,7 @@
    "name": "simple_app",
    "version": "1.0.0",
    "description": "project",
-   "main": "index.js",
+   "main": "dist/index.js",
    "repository": "github",
    "scripts": {
       "watch": "nodemon --watch 'src/**/*' -e ts,tsx --exec ts-node src/server.ts",
@@ -12,7 +12,8 @@
       "build": "npm run tslint && npm run build-ts",
       "start": "ts-node src/index.ts",
       "test-cucumber": "./node_modules/.bin/cucumber-js --parallel 1 --require ./features/steps/*.ts --require-module ts-node/register --format-options '{\"snippetInterface\": \"async-await\"}' --format json:reports/cucumber-report.json --format summary",
-      "report": "node reports/cucumber-html-reporter.js"
+      "report": "node reports/cucumber-html-reporter.js",
+      "dev": "tsc-watch --onSuccess \"node ./dist/server.js\""
    },
    "author": "",
    "license": "ISC",
@@ -29,11 +30,12 @@
       "typeorm": "0.2.22"
    },
    "devDependencies": {
+      "@types/node": "^8.0.29",
       "chai": "^4.2.0",
       "mocha": "^6.2.2",
       "nodemon": "^2.0.2",
       "ts-node": "3.3.0",
-      "typescript": "3.3.3333",
-      "@types/node": "^8.0.29"
+      "tsc-watch": "^4.0.0",
+      "typescript": "3.3.3333"
    }
 }

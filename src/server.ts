@@ -9,8 +9,9 @@ const router = new Router();
 router.get('/', async (ctx) => {
 //    const { rows } = await ctx.app.pool.query('SELECT $1::text as message', ['Hello, World!']);
 //    ctx.body = rows[0].message;
-    ctx.body = 'Hello dear.__';
+    ctx.body = 'Hello dear.!';
 });
+
 
 router.get('/:name', async (ctx) => {
 //    const { rows } = await ctx.app.pool.query('SELECT $1::text as message', [`Hello, ${ctx.params.name}!`]);
@@ -24,6 +25,7 @@ const one = new Promise((resolve, reject) => {
 //  setTimeout(() => reject('Error in promise'), 2000);
 });
 
+/*
 one
     .then(resolve => {
       console.log(resolve);
@@ -31,7 +33,7 @@ one
     .catch(reject => {
       console.log(reject);
     });
-
+*/
 // Development logging
 app.use(Logger());
 // Add routes and response to the OPTIONS requests
