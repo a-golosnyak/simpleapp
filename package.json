@@ -5,7 +5,7 @@
    "main": "dist/index.js",
    "repository": "github",
    "scripts": {
-      "watch": "nodemon --watch 'src/**/*' -e ts,tsx --exec ts-node src/server.ts",
+      "@watch": "nodemon --watch 'src/**/*' -e ts,tsx --exec ts-node src/server.ts",
       "build-ts": "tsc",
       "tslint": "tslint --fix -c tslint.json -p tsconfig.json",
       "serve": "node dist/server.js",
@@ -13,7 +13,11 @@
       "start": "ts-node src/index.ts",
       "test-cucumber": "./node_modules/.bin/cucumber-js --parallel 1 --require ./features/steps/*.ts --require-module ts-node/register --format-options '{\"snippetInterface\": \"async-await\"}' --format json:reports/cucumber-report.json --format summary",
       "report": "node reports/cucumber-html-reporter.js",
-      "dev": "tsc-watch --onSuccess \"node ./dist/server.js\""
+      "dev1": "tsc-watch --onSuccess \"node ./dist/server.js\"",
+      "dev": "npm run development",
+      "development": "tsc-watch --onSuccess \"node ./dist/server.js\" | cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+      "watch": "npm run development -- --watch"
+
    },
    "author": "",
    "license": "ISC",
@@ -36,6 +40,23 @@
       "nodemon": "^2.0.2",
       "ts-node": "3.3.0",
       "tsc-watch": "^4.0.0",
-      "typescript": "3.3.3333"
+      "typescript": "3.3.3333",
+      "cxlt-vue2-toastr": "^1.1.0",
+      "axios": "^0.18",
+      "bootstrap": "^4.0.0",
+      "browser-sync": "^2.26.3",
+      "browser-sync-webpack-plugin": "^2.0.1",
+      "cross-env": "^5.2.0",
+      "jquery": "^3.2",
+      "laravel-mix": "^4.0.7",
+      "lodash": "^4.17.5",
+      "popper.js": "^1.12",
+      "resolve-url-loader": "^2.3.1",
+      "sass": "^1.17.4",
+      "sass-loader": "^7.1.0",
+      "vue": "^2.5.17",
+      "vue-router": "^3.0.7",
+      "vue-template-compiler": "^2.6.10",
+      "date-fns": "^1.30.1"
    }
 }
