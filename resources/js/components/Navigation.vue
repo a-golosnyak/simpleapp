@@ -6,7 +6,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/">
                             <router-link :to='`/`'>
-                                <a class="nav-link font-weight-bold" href="">Home</a>
+                                <a class="nav-link font-weight-bold" href="">Home_</a>
                             </router-link>
                         </a>
                     </li>

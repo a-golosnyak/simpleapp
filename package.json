@@ -13,11 +13,13 @@
       "start": "ts-node src/index.ts",
       "test-cucumber": "./node_modules/.bin/cucumber-js --parallel 1 --require ./features/steps/*.ts --require-module ts-node/register --format-options '{\"snippetInterface\": \"async-await\"}' --format json:reports/cucumber-report.json --format summary",
       "report": "node reports/cucumber-html-reporter.js",
-      "dev1": "tsc-watch --onSuccess \"node ./dist/server.js\"",
+      "dev-back": "tsc-watch --onSuccess \"node ./dist/server.js\"",
+      "dev-front": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+      "watch-front": "npm run dev-front -- --watch",
+
       "dev": "npm run development",
       "development": "tsc-watch --onSuccess \"node ./dist/server.js\" | cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
       "watch": "npm run development -- --watch"
-
    },
    "author": "",
    "license": "ISC",
@@ -27,6 +29,7 @@
       "koa": "^2.11.0",
       "koa-logger": "^3.2.1",
       "koa-router": "^7.4.0",
+      "koa-static": "^5.0.0",
       "pg": "^7.3.0",
       "reflect-metadata": "^0.1.10",
       "request-promise": "^4.2.5",

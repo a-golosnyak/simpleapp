@@ -3,23 +3,25 @@ import * as Router from 'koa-router';
 import * as Logger from 'koa-logger';
 import 'reflect-metadata';
 import { createReadStream } from 'fs';
+//import serve from 'koa-static';
 
 const app = new Koa();
 const router = new Router();
 
+const serve = require('koa-static');
 
 router.get('/', async (ctx) => {
 //    const { rows } = await ctx.app.pool.query('SELECT $1::text as message', ['Hello, World!']);
 //    ctx.body = rows[0].message;
     ctx.type = 'html';
-    ctx.body = createReadStream('public/index.htm');
+    ctx.body = createReadStream('public/index.html');
 });
 
 
 router.get('/test', async (ctx) => {
 //    const { rows } = await ctx.app.pool.query('SELECT $1::text as message', ['Hello, World!']);
 //    ctx.body = rows[0].message;
-    ctx.body = 'Hello dear.!';
+    ctx.body = 'Hello dear!!!';
 });
 
 
@@ -48,6 +50,8 @@ one
 app.use(Logger());
 // Add routes and response to the OPTIONS requests
 app.use(router.routes()).use(router.allowedMethods());
+
+app.use(serve('./public')); // serving static files
 
 // Listen the port
 app.listen(3000, () => {
