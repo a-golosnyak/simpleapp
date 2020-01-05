@@ -35,6 +35,7 @@
 import axios from 'axios';
 
 export default {
+    name: 'PostIndex',
     data() {
         return {
             posts: [],
@@ -46,7 +47,7 @@ export default {
         console.log('Logged in: ' + this.isLoggedIn );
 
         axios
-        .get('/api/posts')
+        .get('/api/post')
         .then(({data}) => {
             this.posts = data;
         })

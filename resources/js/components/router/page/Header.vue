@@ -20,11 +20,9 @@
         padding-bottom: 1rem;
         border: 1px solid grey;
         background: linear-gradient(rgba(255, 255, 255, 0.6),
-        rgba(255, 255, 255, 0.8)), no-repeat;
+        rgba(255, 255, 255, 0.8)), no-repeat, url(/images/03_pcb.jpg);
         background-position: 50% 10%;
     }
-
-
 
     .blog-title {
         margin-bottom: 0;

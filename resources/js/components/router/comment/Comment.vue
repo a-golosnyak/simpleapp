@@ -20,34 +20,38 @@
                 >
                 </div>
             </div>
-            <button
-                v-if="editing"
-                class="px-3"
-                @click="cancel"
-                :disabled="isLoading"
-            >Cancel
-            </button>
-            <button
-                v-else
-                class="px-3"
-                @click="$emit('delete', comment.id)"
-                :disabled="isLoading"
-            >Delete
-            </button>
+            <div
+                v-if='isAuthor'
+            >
+                <button
+                    v-if="editing"
+                    class="px-3"
+                    @click="cancel"
+                    :disabled="isLoading"
+                >Cancel
+                </button>
+                <button
+                    v-else
+                    class="px-3"
+                    @click="$emit('delete', comment.id)"
+                    :disabled="isLoading"
+                >Delete
+                </button>
 
-            <button
-                v-if="editing"
-                class="px-4 ml-2"
-                @click="saveComment(comment)"
-                :disabled="isLoading"
-            >Save
-            </button>
-            <button
-                v-else
-                class="ml-2"
-                @click="editing = !editing"
-            >Edit
-            </button>
+                <button
+                    v-if="editing"
+                    class="px-4 ml-2"
+                    @click="saveComment(comment)"
+                    :disabled="isLoading"
+                >Save
+                </button>
+                <button
+                    v-else
+                    class="ml-2"
+                    @click="editing = !editing"
+                >Edit
+                </button>
+            </div>
         </div>
     </div>
 </template>
@@ -59,6 +63,7 @@
             return {
                 editing: false,
                 body: '',
+                user_id: null,
             }
         },
         props:{
@@ -73,7 +78,17 @@
         },
         created(){
             this.body = this.comment.body;
+            this.user_id = window.localStorage.getItem('auth_user');
         },
+
+        computed:{
+            isAuthor() {
+                console.log(this.comment.user_id);
+
+                return this.user_id == this.comment.user_id;
+            }
+        },
+
         beforeRouteEnter(from, to, next) {
             next(vm => vm.handleBeforeRoute());
         },

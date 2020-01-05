@@ -3,7 +3,7 @@ import * as Router from 'koa-router';
 import * as Logger from 'koa-logger';
 import 'reflect-metadata';
 import { createReadStream } from 'fs';
-//import serve from 'koa-static';
+// import serve from 'koa-static';
 
 const app = new Koa();
 const router = new Router();
@@ -17,13 +17,11 @@ router.get('/', async (ctx) => {
     ctx.body = createReadStream('public/index.html');
 });
 
-
 router.get('/test', async (ctx) => {
 //    const { rows } = await ctx.app.pool.query('SELECT $1::text as message', ['Hello, World!']);
 //    ctx.body = rows[0].message;
     ctx.body = 'Hello dear!!!';
 });
-
 
 router.get('/:name', async (ctx) => {
 //    const { rows } = await ctx.app.pool.query('SELECT $1::text as message', [`Hello, ${ctx.params.name}!`]);
@@ -36,6 +34,8 @@ const one = new Promise((resolve, reject) => {
   setTimeout(() => resolve('Resolve done'), 1000);
 //  setTimeout(() => reject('Error in promise'), 2000);
 });
+
+
 
 /*
 one

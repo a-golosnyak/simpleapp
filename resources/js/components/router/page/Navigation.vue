@@ -6,7 +6,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/">
                             <router-link :to='`/`'>
-                                <a class="nav-link font-weight-bold" href="">Home_</a>
+                                <a class="nav-link font-weight-bold" href="">Home</a>
                             </router-link>
                         </a>
                     </li>
@@ -14,6 +14,16 @@
                         <a class="nav-link" href="/">
                             <router-link :to='`/post/create`'>
                                 <a class="nav-link font-weight-bold" href="">Create Post</a>
+                            </router-link>
+                        </a>
+                    </li>
+
+                    <li
+                        class="nav-item"
+                    >
+                        <a class="nav-link" href="/">
+                            <router-link :to='`/post/create`'>
+                                <a class="nav-link font-weight-bold" href="">Forum</a>
                             </router-link>
                         </a>
                     </li>

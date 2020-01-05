@@ -5,6 +5,7 @@
         <Navigation
             :loggedIn="loggedIn"
         >
+
         </Navigation>
         <div class='main-field '>
             <div class='container data-field'>
@@ -14,8 +15,9 @@
     </div>
 </template>
 <script>
-    import Header from './Header.vue';
-    import Navigation from './Navigation.vue';
+
+    import Header from './router/page/Header.vue';
+    import Navigation from './router/page/Navigation.vue';
 
     export default {
         components: {

@@ -13,15 +13,19 @@
                     <h5>{{ post.body }}</h5>
 
                     <br>
-                    <button
-                        class="float-right ml-2"
-                        @click="editPost"
-                    >Edit
-                    </button>
-                    <button
-                        class="float-right"
-                        @click="deletePost"
-                    >Delete</button>
+                    <div
+                        v-if='isAuthor'
+                    >
+                        <button
+                            class="float-right ml-2"
+                            @click="editPost"
+                        >Edit
+                        </button>
+                        <button
+                            class="float-right"
+                            @click="deletePost"
+                        >Delete</button>
+                    </div>
                     <h5
                         class="mt-5"
                     >Comments
@@ -50,10 +54,10 @@
 
 <script>
     import axios from 'axios';
-    import CommentList from './CommentList'
+    import CommentList from '../comment/CommentList'
 
     export default {
-        name: 'PostIndex',
+        name: 'PostShow',
         components:{
           CommentList,
         },
@@ -67,6 +71,7 @@
                     body: null,
                 },
                 isLoading: null,
+                user_id: null,
             }
         },
         props: {
@@ -75,9 +80,15 @@
                 default: null,
             },
         },
+        computed: {
+          isAuthor() {
+              return this.user_id == this.post.user_id;
+          },
+        },
         created() {
             this.loadPost();
             this.loadPostComments();
+            this.user_id = window.localStorage.getItem('auth_user');
         },
         methods: {
             loadPost(){

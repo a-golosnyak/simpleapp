@@ -3,20 +3,20 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
-import HomePage from './components/HomePage.vue';
-import PostIndex from './components/PostIndex.vue';
-import PostCreateUpdate from './components/PostCreateUpdate.vue';
-import LoginPage from './components/LoginPage.vue';
-import RegisterPage from './components/RegisterPage.vue';
-import UserIndex from './components/UserIndex.vue';
-import UserUpdate from './components/UserUpdate.vue';
+import PostIndex from './components/router/post/PostIndex.vue';
+import PostShow from './components/router/post/PostShow.vue';
+import PostCreateUpdate from './components/router/post/PostCreateUpdate.vue';
+import LoginPage from './components/router/page/LoginPage.vue';
+import RegisterPage from './components/router/page/RegisterPage.vue';
+import UserIndex from './components/router/user/UserShow.vue';
+import UserUpdate from './components/router/user/UserUpdate.vue';
 
 let router = new VueRouter({
     mode: 'history',
     routes: [
         {
             path: '/',
-            component: HomePage,
+            component: PostIndex,
             name: 'home'
         },
 
@@ -47,7 +47,7 @@ let router = new VueRouter({
         },
         {
             path: '/post/:id',
-            component: PostIndex,
+            component: PostShow,
             name: 'post.show',
             props: true,
         },

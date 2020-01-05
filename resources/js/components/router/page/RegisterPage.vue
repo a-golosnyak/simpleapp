@@ -57,9 +57,9 @@
 </template>
 
 <script>
-    import Clients from './passport/Clients'
-    import AuthorizedClients from './passport/AuthorizedClients'
-    import PersonalAccessTokens from './passport/PersonalAccessTokens'
+    import Clients from '../../passport/Clients'
+    import AuthorizedClients from '../../passport/AuthorizedClients'
+    import PersonalAccessTokens from '../../passport/PersonalAccessTokens'
 
     export default {
         components: {
