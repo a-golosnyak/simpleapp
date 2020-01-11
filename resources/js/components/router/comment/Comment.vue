@@ -8,6 +8,7 @@
                     v-if="editing"
                     class="ml-3"
                 >
+
                     <input
                         v-model="comment.body"
                         class="p-1 m-0"

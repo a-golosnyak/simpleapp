@@ -18,5 +18,5 @@ mix.js('resources/js/app.js', 'public/js')
     .browserSync(/*{
       files: 'dist'
     },*/
-      'http://localhost:3000'
+      'http://localhost:4000'
     );

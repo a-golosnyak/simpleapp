@@ -1,21 +1,48 @@
 import 'reflect-metadata';
 import { createConnection } from 'typeorm';
 import { User } from './entity/User';
+import { Post } from './entity/Post';
+import { Comment } from './entity/Comment';
 
 createConnection().then(async connection => {
+    console.log('Seeding...');
 
-    console.log('Inserting a new user into the database...');
+    // === User seeding ============================================================
     const user = new User();
-    user.firstName = 'Timber';
-    user.lastName = 'Saw';
-    user.age = 25;
-    await connection.manager.save(user);
-    console.log('Saved a new user with id: ' + user.id);
+        user.name = 'adm';
+        user.email = 'adm@mail.ru';
+        user.password = '111111';
+        user.age = 20;
+        await connection.manager.save(user);
+    const user1 = new User();
+        user1.name = 'admin';
+        user1.email = 'admin@mail.ru';
+        user1.password = '111111';
+        user1.age = 25;
+        await connection.manager.save(user1);
 
-    console.log('Loading users from the database...');
-    const users = await connection.manager.find(User);
-    console.log('Loaded users: ', users);
+    // === Posts seeding ===========================================================
+    for (let i = 0; i < 5; i++) {
+        const post = new Post();
+        post.title = Math.random().toString(36).substring(7) + ' Title';
+        post.body = Math.random().toString(36).substring(7) + ' Body';
+        post.user.id = 1;
+        await connection.manager.save(post);
+    }
+    // === Comments seeding ========================================================
+    for (let i = 0; i < 5; i++) {
+        const comment = new Comment();
+        comment.body = Math.random().toString(36).substring(7) + ' Comment body';
+        comment.user.id = 1;
+        comment.post.id = 1;
+        await connection.manager.save(comment);
+    }
+    // =============================================================================
 
-    console.log('Here you can setup and run express/koa/any other framework.');
+    console.log('Loading posts from the database...');
+    const posts = await connection
+        .getRepository(Post)
+        .find({relations: ['user', 'comment']});
 
+    console.log('Loaded posts: ', posts);
 }).catch(error => console.log(error));

@@ -1,16 +1,19 @@
 {
   "compilerOptions": {
-      "target": "es6",                       /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017','ES2018' or 'ESNEXT'. */
+      "target": "ES2017",                       /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017','ES2018' or 'ESNEXT'. */
       "module": "commonjs",
+      "allowSyntheticDefaultImports": true,
       "outDir": "dist",
       "sourceMap": true,
-      "lib": ["es2015"],
+      "lib": ["es2015", "es5", "es6"],
+      "moduleResolution": "node",
       "emitDecoratorMetadata": true,
       "experimentalDecorators": true
   },
 
   "include": [
-    "src/**/*.ts"
+    "src/**/*.ts",
+    "src/*.ts"
   ],
   "exclude": [
     "node_modules"

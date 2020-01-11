@@ -7,7 +7,7 @@
                 >
                     <h2 class='blog-post-title'>{{ post.title }}</h2>
                     <h6 class='blog-post-meta'>
-                        {{ post.created_at }} auhor {{ post.user.name }}
+                        {{ postCreatedAt(post.created_at) }} auhor {{ post.user.name }}
                         <a class='none-decored' href='#'></a>
                     </h6>
                     <h5>{{ post.body }}</h5>
@@ -53,8 +53,8 @@
 </template>
 
 <script>
-    import axios from 'axios';
     import CommentList from '../comment/CommentList'
+    import { format } from 'date-fns'
 
     export default {
         name: 'PostShow',
@@ -82,7 +82,7 @@
         },
         computed: {
           isAuthor() {
-              return this.user_id == this.post.user_id;
+              return this.user_id === this.post.user_id;
           },
         },
         created() {
@@ -91,6 +91,10 @@
             this.user_id = window.localStorage.getItem('auth_user');
         },
         methods: {
+            postCreatedAt(date) {
+                return format(date, "YY-MM-DD hh:mm");
+            },
+
             loadPost(){
                 axios.defaults.headers.common['Authorization'] = 'Bearer ' + window.localStorage.getItem('token');
                 axios
@@ -143,7 +147,7 @@
 
             loadPostComments(){
                 axios
-                    .get(`/api/comment/${this.id}`)
+                    .get(`/api/post/comment/${this.id}`)
                     .then(({data})=>{
                         this.comments = data;
                     })

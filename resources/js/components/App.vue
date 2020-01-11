@@ -18,6 +18,7 @@
 
     import Header from './router/page/Header.vue';
     import Navigation from './router/page/Navigation.vue';
+    import Vue from 'vue'
 
     export default {
         components: {
@@ -32,7 +33,11 @@
             }
         },
         created() {
+           // console.log(this.getCookie('aaa'));
 
+          //let token = Vue.cookie.get('access_token');
+
+/*
             this.token = window.localStorage.getItem('token');
             this.authUser = window.localStorage.getItem('auth_user');
 
@@ -41,7 +46,7 @@
             if (window.localStorage.getItem('token') !== '') {
                 this.loggedIn = true;
             }
-
+*/
         },
         methods: {
         },
