@@ -9,6 +9,7 @@ const authRouter = new Router();
 // authRouter.get('/api/post', 	        postController.index);
 authRouter.get('/api/post/:id', 	    postController.show);
 authRouter.get('/api/post/comment/:id', commentPostController.index);
+authRouter.post('/api/post',            postController.create);
 
 authRouter.get('/api/comment', 	        commentController.index);
 authRouter.get('/api/comment/:id', 	    commentController.show);

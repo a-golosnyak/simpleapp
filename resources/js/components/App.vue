@@ -37,7 +37,7 @@
 
           //let token = Vue.cookie.get('access_token');
 
-/*
+
             this.token = window.localStorage.getItem('token');
             this.authUser = window.localStorage.getItem('auth_user');
 
@@ -46,7 +46,7 @@
             if (window.localStorage.getItem('token') !== '') {
                 this.loggedIn = true;
             }
-*/
+
         },
         methods: {
         },

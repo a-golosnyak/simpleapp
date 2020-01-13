@@ -1,8 +1,8 @@
 import * as Router from 'koa-router';
 
 import homeController from './controller/homeController';
-import { authRouter } from './authRoutes';
 import postController from './controller/PostController';
+import userController from './controller/UserController';
 
 const guestRouter = new Router();
 
@@ -11,10 +11,12 @@ const guestRouter = new Router();
 // router.get('/test',            homeController.indexTest);
 // router.get('/:name',            homeController.indexName);
 
-guestRouter
-  .get('/', homeController.index)
 
-guestRouter.get('/api/post', 	   postController.index);
+guestRouter.get('/api',             homeController.index);
+
+guestRouter.get('/api/post', 	    postController.index);
+
+guestRouter.post('/api/login',      userController.login);
 
 guestRouter.get('/post/:id(\\d+)', (ctx) => {
         ctx.redirect('/');
