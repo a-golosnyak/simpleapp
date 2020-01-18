@@ -34,16 +34,11 @@ export default class UserController {
             user_id:        '1',
         };
 
-        /*
-        'access_token' => $tokenResult->accessToken,
-            'token_type' => 'Bearer',
-            'expires_at' => Carbon::parse(
-                $tokenResult->token->expires_at
-            )->toDateTimeString(),
-            'user_id'  => Auth::user()->id
-
-
-         */
     }
 
+    public static async register(ctx: BaseContext) {
+
+
+
+    }
 }
