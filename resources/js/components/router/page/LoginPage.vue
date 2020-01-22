@@ -59,7 +59,7 @@
                     window.localStorage.setItem('token', data.access_token)
                     window.localStorage.setItem('auth_user', data.user_id);
 //                  this.$router.go(-1);
-                    location.href = '/';
+                    // location.href = '/';
 //                  this.$router.push('home');
                     axios.defaults.headers.common['Authorization'] = 'Bearer ' +- window.localStorage.getItem('token');
                 })

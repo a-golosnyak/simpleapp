@@ -50,31 +50,10 @@ const jwt = require('koa-jwt');
     });
 
     // Development logging
-    // app.use(Logger());
+    app.use(Logger());
 
     app.use(serve('./public')); // serving static files
 
-    // app.keys = ['secret'];
-    // app.use(session({}, app));
-
-    // app.use(new CSRF({
-    //   invalidTokenMessage: 'Invalid CSRF token',
-    //   invalidTokenStatusCode: 403,
-    //   excludedMethods: [ 'GET', 'HEAD', 'OPTIONS' ],
-    //   disableQuery: false
-    // }));
-
-/*
-    app.use((ctx, next) => {
-        console.log('ctx.csrf');
-        console.log(ctx.state.csrf);
-
-        if (ctx.method === 'GET') {
-            ctx.state.csrf = ctx.csrf;
-        }
-      return next();
-    });
-*/
     // x-response-time
     // app.use(async function (ctx, next) {
     //     console.log('x-response-time');
@@ -85,34 +64,12 @@ const jwt = require('koa-jwt');
     // });
 
     app.use(bodyParser());
-
     app.use(guestRouter.routes()).use(guestRouter.allowedMethods());
-
     app.use(jwt({secret: process.env.JWT_SECRET}));
-
     app.use(authRouter.routes()).use(authRouter.allowedMethods());
 
-    // Protected middleware
-    // app.use(function(ctx) {
-    //     console.log('Protected middleware');
-    //     if (ctx.url.match(/^\/api/)) {
-    //         ctx.body = 'protected\n';
-    //     }
-    // });
 
     // Listen the port
     app.listen(4000, () => {
       console.log('Server running on port 4000');
     });
-
-
-    // generate the JWT
-// function generateToken(req) {
-//     const secret = process.env.JWT_SECRET;
-//
-//     return jwt.sign({
-//         auth:  'magic',
-//         agent: req.headers['user-agent'],
-//         exp:   Math.floor(new Date().getTime() / 1000) + 7 * 24 * 60 * 60 // Note: in seconds!
-//     }, secret);  // secret is defined in the environment variable JWT_SECRET
-// }
