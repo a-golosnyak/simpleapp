@@ -32,9 +32,9 @@
                 authUser: null
             }
         },
+
         created() {
            // console.log(this.getCookie('aaa'));
-
           //let token = Vue.cookie.get('access_token');
 
 

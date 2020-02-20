@@ -10,14 +10,22 @@ import LoginPage from './components/router/page/LoginPage.vue';
 import RegisterPage from './components/router/page/RegisterPage.vue';
 import UserIndex from './components/router/user/UserShow.vue';
 import UserUpdate from './components/router/user/UserUpdate.vue';
+import ThreeLab from './components/router/page/ThreeLab.vue';
+import ThreeLab2 from './components/router/page/ThreeLab2.vue';
 
 let router = new VueRouter({
     mode: 'history',
     routes: [
         {
             path: '/',
-            component: PostIndex,
+            component: ThreeLab2, //ThreeLab, // PostIndex,
             name: 'home'
+        },
+
+        {
+            path: '/tree',
+            component: ThreeLab,
+            name: 'three'
         },
 
         {

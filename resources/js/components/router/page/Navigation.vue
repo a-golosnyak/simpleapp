@@ -22,8 +22,8 @@
                         class="nav-item"
                     >
                         <a class="nav-link" href="/">
-                            <router-link :to='`/post/create`'>
-                                <a class="nav-link font-weight-bold" href="">Forum</a>
+                            <router-link :to='`/three`'>
+                                <a class="nav-link font-weight-bold" href="">ThreeLab</a>
                             </router-link>
                         </a>
                     </li>
