@@ -44,7 +44,7 @@
       "request-promise": "^4.2.5",
       "three": "^0.112.1",
       "tslint": "^5.20.1",
-      "typeorm": "0.2.22"
+      "typeorm": "0.2.25"
    },
    "devDependencies": {
       "@types/date-fns": "^2.6.0",
