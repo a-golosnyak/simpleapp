@@ -26,7 +26,7 @@
       "@cyrilf/vue-dat-gui": "^0.3.0",
       "@types/es6-promise": "^3.3.0",
       "@types/node": "^12.7.4",
-      "class-validator": "^0.11.0",
+      "class-validator": "^0.14.0",
       "dat.gui": "^0.7.6",
       "ejs": "^3.0.1",
       "koa": "^2.11.0",
